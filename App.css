@@ -1,0 +1,148 @@
+/* ===== GLOBAL ===== */
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef1f6;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+
+/* ===== CONTAINER ===== */
+
+.container {
+    width: 70%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px rgba(0,0,0,0.1);
+}
+
+/* ===== CARDS ===== */
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-left: 5px solid #3b82f6;
+}
+
+/* ===== FORM ===== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* ===== BUTTONS ===== */
+
+button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.actions button {
+    margin-left: 6px;
+}
+
+/* ===== STATUS ===== */
+
+.completed {
+    color: green;
+    font-weight: bold;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+/* ===== FILTER ===== */
+
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.left-title{
+    margin:0;
+}
+
+.add-btn{
+    background:#16a34a;
+}
+
+.add-btn:hover{
+    background:#15803d;
+}
+
+.nav-btn{
+    background:black;
+    color:white;
+    padding:8px 14px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:500;
+    justify-content: center;
+
+}
+
+.nav-btn:hover{
+    background:grey;
+}
+
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    background: #3498db;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    padding: 6px 10px;
+}
