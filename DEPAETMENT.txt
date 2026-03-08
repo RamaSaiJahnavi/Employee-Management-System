@@ -1,0 +1,254 @@
+DEPAETMENT:
+post: http://localhost:8080/departments
+
+{
+  "name": "Finance",
+  "location": "Head Office, Building B"
+}
+
+
+{
+  "name": "Human Resources",
+  "location": "Main Campus, Floor 3"
+}
+
+{
+  "name": "Research and Development",
+  "location": "Innovation Lab, Block A"
+}
+
+{
+  "name": "Marketing",
+  "location": "Downtown Office, Floor 2"
+}
+
+{
+  "name": "Customer Support"
+}
+
+{
+  "name": "Human Resources",
+  "location": "Head Office, Building A",
+  "employees": [
+    {
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "salary": 50000
+    },
+    {
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "salary": 55000
+    }
+  ]
+}
+
+
+get: http://localhost:8080/departments  (get all details)
+get by id: http://localhost:8080/departments/1
+	   http://localhost:8080/departments/2
+
+get by name: http://localhost:8080/departments/search/marketing
+
+put:http://localhost:8080/departments/1
+
+delete: http://localhost:8080/departments/1
+
+
+
+
+
+EMPLOYEES:
+post:http://localhost:8080/employees
+
+{
+  "name": "James Anderson",
+  "email": "james.anderson@example.com",
+  "salary": 60000
+}
+
+{
+  "name": "Olivia Martinez",
+  "email": "olivia.martinez@example.com",
+  "salary": 58000,
+  "department": {
+	"id":5
+	}
+}
+
+
+{
+  "name": "Ethan Thompson",
+  "email": "ethan.thompson@example.com",
+  "salary": 62000,
+  "department":{
+	"id":8
+	}
+
+}
+
+{
+  "name": "Sophia Williams",
+  "email": "sophia.williams@example.com",
+  "salary": 55000,
+  "department": {
+	"id":10
+	}
+
+}
+
+{
+  "name": "Liam Johnson",
+  "email": "liam.johnson@example.com",
+  "salary": 61000,
+}
+
+get: http://localhost:8080/employees
+get by id: http://localhost:8080/employees/1
+get by name: http://localhost:8080/employees/search/ram
+
+put: http://localhost:8080/employees/1
+
+patch: http://localhost:8080/employees/1/salary?salary=75000
+
+delete: http://localhost:8080/employees/1
+
+
+
+
+
+
+PROJECT:
+post: http://localhost:8080/projects
+
+{
+  "title": "Website Redesign",
+  "deadline": "2026-05-31"
+}
+
+
+{
+  "title": "Mobile App Development",
+  "deadline": "2026-06-15"
+}
+
+{
+  "title": "Marketing Campaign Launch",
+  "deadline": "2026-04-20",
+  "employees": [
+    { "id": 1 }
+  ]
+}
+
+
+{
+  "title": "Data Migration Project",
+  "deadline": "2026-07-10",
+  "employees": [
+    { "id": 2 }
+  ]
+}
+
+{
+  "title": "Customer Feedback Analysis",
+  "deadline": "2026-05-05",
+  "employees": [
+    { "id": 3 }
+  ]
+}
+
+{
+  "title": "Website Redesign",
+  "deadline": "2026-05-31",
+  "tasks": [
+    {
+      "title": "Prepare UI Design",
+      "priority": 5,
+      "dueDate": "2026-03-01"
+    },
+    {
+      "title": "Backend API Development",
+      "priority": 3,
+      "dueDate": "2026-03-15"
+    },
+    {
+      "title": "Testing & QA",
+      "priority": 2,
+      "dueDate": "2026-04-15"
+    }
+  ]
+}
+
+get: http://localhost:8080/projects
+get by id: http://localhost:8080/projects/1
+get by title: http://localhost:8080/projects/search/moile
+
+put: http://localhost:8080/projects/1
+
+delete: http://localhost:8080/projects/1
+
+
+
+
+TASK:
+post: http://localhost:8080/tasks
+
+{
+  "title": "Prepare Monthly Sales Report",
+  "priority": 4,
+  "dueDate": "2026-02-20"
+}
+
+{
+  "title": "Update Website Content",
+  "priority": 2,
+  "dueDate": "2026-03-01"
+}
+
+{
+  "title": "Team Meeting Preparation",
+  "priority": 5,
+  "dueDate": "2026-02-18",
+  "project": {
+    "id": 1,
+  }
+}
+
+{
+  
+  "title": "Prepare Monthly Sales Report",
+  "priority": 1,
+  "dueDate": "2026-02-20",
+  "project": {
+    "id": 1,
+    "title": "Finance Project",
+    "deadline": "2026-02-28"
+  }
+}
+
+{
+  "title": "Database Backup",
+  "priority": 2,
+  "dueDate": "2026-02-28"
+}
+
+get: http://localhost:8080/tasks
+get by id: http://localhost:8080/tasks/1
+get by title: http://localhost:8080/tasks/search/team meeting
+
+put: http://localhost:8080/tasks/1
+
+patch: http://localhost:8080/tasks/5/priority?priority=2
+
+delete: http://localhost:8080/tasks/5
+
+
+
+
+
+
+
+
+
+
+

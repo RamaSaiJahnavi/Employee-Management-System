@@ -1,0 +1,11 @@
+/* For a specific element */
+.your-element {
+    cursor: default;        /* normal arrow instead of text caret */
+    user-select: none;      /* prevents text selection */
+}
+
+/* Or globally for the page */
+* {
+    cursor: default;
+    user-select: none;
+}
