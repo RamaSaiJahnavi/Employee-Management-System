@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { apiUrl } from "../config/api";
 
 function Task() {
 
-    const API = "http://localhost:8080/tasks";
-    const PROJECT_API = "http://localhost:8080/projects";
+    const API = apiUrl("/tasks");
+    const PROJECT_API = apiUrl("/projects");
 
     const [tasks, setTasks] = useState([]);
     const [projects, setProjects] = useState([]);
@@ -140,32 +141,32 @@ function Task() {
     };
 
     return (
-        <div className="max-w-5xl mx-auto p-6">
+        <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">
 
             <h2 className="text-3xl font-bold text-center mb-6 text-green-700">
                 Task Management
             </h2>
 
             {/* SEARCH BAR */}
-            <div className="mb-6 flex gap-2 justify-center">
+            <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:justify-center">
 
                 <input
                     placeholder="Search by ID or Title..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="border border-gray-300 rounded-md p-2 w-80"
+                    className="w-full rounded-md border border-gray-300 p-2 sm:w-80"
                 />
 
                 <button
                     onClick={searchTasks}
-                    className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+                    className="rounded bg-green-700 px-4 py-2 text-white hover:bg-green-800"
                 >
                     Search
                 </button>
 
                 <button
                     onClick={() => { setSearch(""); fetchTasks(); }}
-                    className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700"
+                    className="rounded bg-gray-600 px-4 py-2 text-white hover:bg-gray-700"
                 >
                     Reset
                 </button>
@@ -175,11 +176,11 @@ function Task() {
             {/* TASK FORM */}
             <form
                 onSubmit={handleSubmit}
-                className="bg-white shadow-md rounded-lg p-6 mb-8 grid grid-cols-1 md:grid-cols-5 gap-4 items-end"
+                className="mb-8 grid grid-cols-1 items-end gap-4 rounded-lg bg-white p-4 shadow-md sm:p-6 md:grid-cols-5"
             >
 
                 <input
-                    className="border border-gray-300 rounded px-3 py-2"
+                    className="w-full rounded border border-gray-300 px-3 py-2"
                     placeholder="Title"
                     value={form.title}
                     onChange={(e) => setForm({ ...form, title: e.target.value })}
@@ -188,20 +189,20 @@ function Task() {
                 <input
                     type="number"
                     placeholder="Priority (1-5)"
-                    className="border border-gray-300 rounded px-3 py-2"
+                    className="w-full rounded border border-gray-300 px-3 py-2"
                     value={form.priority}
                     onChange={(e) => setForm({ ...form, priority: e.target.value })}
                 />
 
                 <input
                     type="date"
-                    className="border border-gray-300 rounded px-3 py-2"
+                    className="w-full rounded border border-gray-300 px-3 py-2"
                     value={form.dueDate}
                     onChange={(e) => setForm({ ...form, dueDate: e.target.value })}
                 />
 
                 <select
-                    className="border border-gray-300 rounded px-3 py-2"
+                    className="w-full rounded border border-gray-300 px-3 py-2"
                     value={form.project.id}
                     onChange={(e) => setForm({ ...form, project: { id: e.target.value } })}
                 >
@@ -215,7 +216,7 @@ function Task() {
 
                 <button
                     type="submit"
-                    className="bg-green-700 text-white px-4 py-2 rounded"
+                    className="w-full rounded bg-green-700 px-4 py-2 text-white md:w-auto"
                 >
                     {form.id ? "Update" : "Add"}
                 </button>
@@ -228,24 +229,24 @@ function Task() {
                 {tasks.map(t => (
                     <div key={t.id} className="bg-white shadow-md rounded-lg p-4">
 
-                        <div className="flex justify-between items-center mb-2">
+                        <div className="mb-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
                             <h3 className="font-semibold text-lg">
                                 {t.title} (ID: {t.id})
                             </h3>
 
-                            <div className="space-x-2">
+                            <div className="flex gap-2">
 
                                 <button
                                     onClick={() => handleEdit(t)}
-                                    className="bg-yellow-400 text-white px-3 py-1 rounded"
+                                    className="rounded bg-yellow-400 px-3 py-2 text-white"
                                 >
                                     Edit
                                 </button>
 
                                 <button
                                     onClick={() => handleDelete(t.id)}
-                                    className="bg-red-500 text-white px-3 py-1 rounded"
+                                    className="rounded bg-red-500 px-3 py-2 text-white"
                                 >
                                     Delete
                                 </button>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { apiUrl } from "../config/api";
 
 function Department() {
 
-    const API = "http://localhost:8080/departments";
+    const API = apiUrl("/departments");
 
     const [departments, setDepartments] = useState([]);
     const [form, setForm] = useState({ id: null, name: "", location: "" });
@@ -111,24 +112,24 @@ function Department() {
     };
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">
 
             <h2 className="text-3xl font-bold text-center text-green-700 mb-6">
                 Departments
             </h2>
 
             {/* 🔎 Search Bar */}
-            <div className="mb-6 flex gap-2 justify-center">
+            <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:justify-center">
                 <input
                     placeholder="Search by ID or Name..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="border border-gray-300 rounded-md p-2 w-80 focus:ring-2 focus:ring-green-400 outline-none"
+                    className="w-full rounded-md border border-gray-300 p-2 outline-none focus:ring-2 focus:ring-green-400 sm:w-80"
                 />
 
                 <button
                     onClick={searchDepartments}
-                    className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+                    className="rounded bg-green-700 px-4 py-2 text-white hover:bg-green-800"
                 >
                     Search
                 </button>
@@ -138,7 +139,7 @@ function Department() {
                         setSearch("");
                         fetchDepartments();
                     }}
-                    className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700"
+                    className="rounded bg-gray-600 px-4 py-2 text-white hover:bg-gray-700"
                 >
                     Reset
                 </button>
@@ -147,17 +148,17 @@ function Department() {
             {/* 📝 Form */}
             <form
                 onSubmit={handleSubmit}
-                className="bg-white shadow-md rounded-lg p-6 mb-8 flex flex-col md:flex-row gap-4 items-center"
+                className="mb-8 flex flex-col gap-4 rounded-lg bg-white p-4 shadow-md sm:p-6 md:flex-row md:items-center"
             >
                 <input
-                    className="border border-gray-300 rounded-md p-2 flex-1 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    className="w-full flex-1 rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
                     placeholder="Name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                 />
 
                 <input
-                    className="border border-gray-300 rounded-md p-2 flex-1 focus:outline-none focus:ring-2 focus:ring-green-400"
+                    className="w-full flex-1 rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
                     placeholder="Location"
                     value={form.location}
                     onChange={(e) => setForm({ ...form, location: e.target.value })}
@@ -165,7 +166,7 @@ function Department() {
 
                 <button
                     type="submit"
-                    className="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition-colors"
+                    className="w-full rounded-md bg-green-700 px-4 py-2 text-white transition-colors hover:bg-green-800 md:w-auto"
                 >
                     {form.id ? "Update" : "Add"}
                 </button>
@@ -195,17 +196,17 @@ function Department() {
                             </p>
                         </div>
 
-                        <div className="flex gap-2 mt-4">
+                        <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                             <button
                                 onClick={() => handleEdit(d)}
-                                className="flex-1 bg-yellow-400 text-white py-1 rounded hover:bg-yellow-500"
+                                className="flex-1 rounded bg-yellow-400 py-2 text-white hover:bg-yellow-500"
                             >
                                 Edit
                             </button>
 
                             <button
                                 onClick={() => handleDelete(d.id)}
-                                className="flex-1 bg-red-500 text-white py-1 rounded hover:bg-red-600"
+                                className="flex-1 rounded bg-red-500 py-2 text-white hover:bg-red-600"
                             >
                                 Delete
                             </button>

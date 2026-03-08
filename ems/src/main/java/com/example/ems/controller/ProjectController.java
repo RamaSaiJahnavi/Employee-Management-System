@@ -5,7 +5,7 @@ import java.util.List;
 import com.example.ems.entity.Project;
 import com.example.ems.service.ProjectService;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 
 @RestController
 @RequestMapping("/projects")
