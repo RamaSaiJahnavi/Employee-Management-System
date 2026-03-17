@@ -1,7 +1,7 @@
 [build]
 builder = "RAILPACK"
 watchPatterns = ["employee-frontend/**"]
-buildCommand = "npm ci && npm run build"
+buildCommand = "npm install --include=dev --no-audit --no-fund && npm run build"
 
 [deploy]
 startCommand = "npm run preview -- --host 0.0.0.0 --port $PORT"
