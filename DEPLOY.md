@@ -4,7 +4,7 @@ Backend service (ems):
 - Create a Railway service from this repo.
 - Set Root Directory to `ems`.
 - Set Config as Code path to `/ems/railway.toml`.
-- If Java 25 build fails, set `RAILPACK_JDK_VERSION=25` or lower `java.version` in `ems/pom.xml`.
+- Set env var `RAILPACK_JDK_VERSION=25` in Railway (required because the project targets Java 25).
 
 Frontend service (employee-frontend):
 - Create a Railway service from this repo.
