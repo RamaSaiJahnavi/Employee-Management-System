@@ -37,3 +37,10 @@ npm run build
 4. Deploy.
 
 `vercel.json` already includes SPA rewrite support.
+
+## Deploy on Railway
+
+1. Create a Railway service for the frontend and set **Root Directory** to `employee-frontend`.
+2. Set the **Config as Code** path to `/employee-frontend/railway.toml`.
+3. Add environment variable `VITE_API_BASE_URL` with your backend public URL.
+4. Deploy.
