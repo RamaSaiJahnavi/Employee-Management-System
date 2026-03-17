@@ -1,8 +1,0 @@
-[build]
-builder = "RAILPACK"
-watchPatterns = ["ems/**"]
-buildCommand = "./mvnw -B -DskipTests package"
-
-[deploy]
-startCommand = "java -Dserver.port=$PORT -jar target/*.jar"
-restartPolicyType = "ON_FAILURE"
