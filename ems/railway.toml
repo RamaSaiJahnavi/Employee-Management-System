@@ -1,7 +1,7 @@
 [build]
 builder = "RAILPACK"
 watchPatterns = ["ems/**"]
-buildCommand = "./mvnw -B -DskipTests package"
+buildCommand = "chmod +x mvnw && ./mvnw -B -DskipTests package"
 
 [deploy]
 startCommand = "java -Dserver.port=$PORT -jar target/*.jar"
